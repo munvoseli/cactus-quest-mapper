@@ -4,6 +4,10 @@ var imageArrayList = [];
 var mapScreenTeleportsSet = [];
 var cheatsStateList = [0];
 
+var treasureInfoSet = [];
+var cheatsInfoSet = [];
+var cellNameList = [];
+
 var levelWidth = 200;
 var levelHeight = 200;
 
@@ -440,3 +444,43 @@ function imageArrayListAdd(name, width, height, code)
 
 cellNameList = ["", "blockRandom", "zapBlock", "zapBox", "zapDish", "zapCannon", "zapTorpedo", "zapSpring", "platformOneWay", "signGeneric", "healthOrbIncrease", "pebbleRandom", "cactusSage", "toastRunner", "shredderFly", "logPile", "grillCan", "floatSaw", "balloonShield", "balloonCannon", "balloonWreckingBall", "gateIndicator", "gateNormallyOpen", "gateNormallyClosed", "gateSwitch", "flagCheckpoint", "blockSand", "blockSandEdgeTop", "blockSandEdgeBottom", "blockSandEdgeRight", "blockSandEdgeLeft", "blockSandRocks", "blockSandRocksSmall", "mushroomPurple", "blockSandBetween", "blockSandLight", "blockSandLightEdgeTop", "blockSandLightCornerTopLeft", "blockSandLightCornerTopRight", "cabinetRandom", "bedRandom", "noobInstruction1", "noobInstruction2", "pileRock", "pileRockSmall", "pillarVertical", "roofRedLeft", "roofRedCentre", "roofRedRight", "cactusCivilian", "blockLogHorizontalCentre", "blockLogHorizontalRight", "blockLogHorizontalLeft", "cactusGuard", "crateRandom", "blockSandGrassCentre", "blockSandGrassLeft", "blockSandGrassRight", "grassTall", "vineCentre", "vineTop", "blockLogVerticalCentre", "blockLogVerticalTop", "blockLogVerticalPlatformCentre", "blockLogVerticalPlatformRight", "blockLogVerticalPlatformLeft", "blockChair", "blockChairTop", "blockChairBottom", "blockChairLeft", "blockChairRight", "blockChairTopLeft", "blockChairTopRight", "blockChairBottomLeft", "blockChairBottomRight", "rotarySaw", "blockMetalRustyLeft", "blockMetalRustyCentre", "blockMetalRustyRight", "blockLogLeft", "blockLogCentre", "blockLogRight", "blockWarning", "blockGranite", "blockGraniteEdgeTop", "blockGraniteEdgeBottom", "blockGraniteBetweenLeft", "blockGraniteBetweenRight", "blockSandGemsPurpleSmall", "blockSandGemsPurple", "blockSandWallMetalRight", "blockSandWallMetalLeft", "blockGraniteWallMetalRight", "blockGraniteWallMetalLeft", "blockGraniteGemsBlue", "blockGraniteGemsBlueSmall", "blockWallMetal", "mysterioClimber", "stalactiteLoose", "mysterioPuddle1", "mysterioPuddle2", "blockMetalHorizontalLeft", "blockMetalHorizontalCentre", "blockMetalHorizontalRight", "toasterObstacle", "heatingElement", "blockToaster", "blockToasterTop", "blockToasterLeft", "blockToasterRight", "blockToasterBottom", "blockToasterTopLeft", "blockToasterTopRight", "blockToasterBottomLeft", "blockToasterBottomRight", "blockTechnologic1", "blockTechnologic2", "blockTechnologic3", "blockTechnologic4", "blockOven1", "blockOven2", "blockOven3", "blockOven4", "gateBoss", "gateBossSwitch", "gateBossIndicator", "bossToaster", "toasterRogue", "battery", "spikeDeadly", "blockBeamLeft", "blockBeamCentre", "blockBeamRight", "blockBeamPlatform1", "blockBeamPlatform2", "blockLoopLeft", "blockLoopCentre", "blockLoopRight", "blockBeam", "beamPillarVertical", "propellerRandom", "propellerTop", "portal", "blockIgneous", "blockIgneousEdgeTop", "blockIgneousEdgeLeft", "blockIgneousEdgeRight", "blockIgneousEdgeBottom", "blockIgneousCornerTopLeft", "blockIgneousCornerTopRight", "blockIgneousCornerBottomLeft", "blockIgneousCornerBottomRight", "lavaPool", "lavaPoolTop", "bombJet", "lavaPoolCorner", "bossMagma", "flame", "blockBalloon", "blockBalloonEdgeTop", "blockBalloonEdgeLeft", "blockBalloonEdgeRight", "blockBalloonEdgeBottom", "blockBalloonCornerTopLeft", "blockBalloonCornerTopRight", "blockBalloonCornerBottomLeft", "blockBalloonCornerBottomRight", "blockFortressSmall", "blockFortressLargeTopLeft", "blockFortressLargeTopRight", "blockFortressLargeBottomLeft", "blockFortressLargeBottomRight", "blockFortressHorizontalLeft", "blockFortressHorizontalRight", "blockFortressVerticalTop", "blockFortressVerticalBottom", "pillarFortressVertical", "pillarFortressHorizontal", "blockHelium", "blockTape", "pumpAir", "signArrowUp", "boxsimilator", "bossBalloon", "pipeDuctVertical", "teleport", "chestTreasure", "tokenCheat", "toasterCivilian", "gemCivilian", "chairCivilian", "copterCivilian", "blobCivilian", "cactusScientist", "cactusProfessor", "corruptor", "discus", "portalMachine"];
 
+
+// Stores the image names, dialogue
+// to display, and text to show in
+// the pause screen for each treasure.
+// The ordering of the elements
+// determines 
+treasureInfoSet = [
+    ["treasureSporkSilver", "YOU GOT A SILVERnSPORK. GREAT FORnSOUPS AND PASTA!", "SILVER SPORK"],
+    ["treasureDictionary", "YOU GOT AnDICTIONARY!nHOW HANDY.", "DICTIONARY"],
+    ["treasurePhone", "YOU GOT A PHONE!nAN OLD, ROTARYnMODEL.", "TELEPHONE"],
+    ["treasureTurnip", "YOU GOT A TURNIP!nA BITTER VEGGIEnINDEED.", "TURNIP"],
+    ["treasureCubePuzzle", "YOU GOT A PUZZLEnCUBE! WHAT METHODnWILL YOU USE?", "PUZZLE CUBE"],
+    ["treasureGlobeSnow", "YOU GOT A SNOWnGLOBE! FILLEDnWITH FLURRIES.", "SNOW GLOBE"],
+    ["treasureRuby", "YOU GOT A RUBY!nNO, IT'S NOT ONnRAILS.", "RUBY"],
+    ["treasureNuggetGold", "YOU GOT A GOLDnNUGGET! EUREKA!n", "GOLD NUGGET"],
+    ["treasureBlokSoviet", "YOU GOT A SOVIETnBLOK! IN SOVIETnRUSSIA...", "SOVIET BLOK"],
+    ["treasureClock", "YOU GOT A CLOCK!nIT'S TIME TO FIGHTnBALLOONS!", "CLOCK"],
+    ["treasureCalculatorGraphing", "YOU GOT AnGRAPHINGnCALCULATOR!", "GRAPHING CALC"],
+    ["treasureShellSnail", "YOU GOT A SNAILnSHELL! IT HAS LONGnSINCE BEEN EMPTY.", "SNAIL SHELL"],
+    ["treasureCandle", "YOU GOT A CANDLE!nWATCH OUT FORnHOT WAX!", "CANDLE"],
+    ["treasureBrowserGood", "YOU GOT A GOODnBROWSER! ZIPPYnJAVASCRIPT!", "GOOD BROWSER"],
+    ["treasureGhostSpooky", "YOU GOT A SPOOKYnGHOST! HE DOESN'TnLOOK TOO MEAN.", "SPOOKY GHOST"],
+    ["treasureScrollAncient", "YOU GOT ANnANCIENT SCROLL!nQUITE DUSTY.", "ANCIENT SCROLL"],
+    ["treasureBulbLight", "YOU GOT A LIGHTnBULB! CAREFUL, ORnIT MAY BREAK!", "LIGHT BULB"],
+    ["treasurePitchman", "YOU GOT A GREATnPITCHMAN! R.I.P.nBILLY MAYS!", "PITCHMAN"],
+    ["treasureWellInk", "YOU GOT AN INKnWELL! IF ONLYnYOU HAD A QUILL...", "INK WELL"],
+    ["treasureMuffin", "YOU GOT A MUFFIN!nEMBEDDED WITHnCHOCO CHIPS!", "MUFFIN"],
+    ["treasureChestSmaller", "YOU GOT AN EVENnSMALLER CHEST!nIT'S LOCKED.", "SMALL CHEST"],
+    ["treasureHorn", "YOU GOT A HORN!nGREAT FOR ANnOLD CAR.", "HORN"]
+];
+
+cheatsInfoSet = [
+    ["YOU GOT A TOKENnFOR PSYCHEDELICnMODE!nTHIS WILL MAKEnEVERYTHING LOOKnCOLORFUL.", "PSYCHEDELIC"],
+    ["YOU GOT A TOKENnFOR NO COLLIDEnMODE!nTHIS ALLOWS YOUnTO FLY THROUGHnBLOCKS.", "NO COLLIDE"],
+    ["YOU GOT A TOKENnFOR INVINCIBLEnMODE!", "INVINCIBLE"],
+    ["YOU GOT A TOKENnFOR CLEAR MAPnMODE!nCLEARS THE MAPnCOVERING ON THEnPAUSE SCREEN.", "CLEAR MAP"],
+    ["YOU GOT A TOKENnFOR LEVEL EDITnMODE!nALLOWS YOU TOnEDIT OBJECTS.n", "EDITOR"],
+    ["YOU GOT A TOKENnFOR ZAP SPRINGnMODE!nCHANGES YOURnAPPEARANCE TOnA ZAP SPRING.", "ZAP SPRING"],
+    ["YOU GOT A TOKENnFOR TOAST RUNNERnMODE!nCHANGES YOUnINTO A RUNNINGnPIECE OF TOAST.", "TOAST"]
+];

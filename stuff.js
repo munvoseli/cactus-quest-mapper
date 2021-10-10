@@ -42,7 +42,7 @@ for (var i = 0; i < levelArray.length; ++i)
     {
 	camx = i % 200 - 2;
 	camy = Math.floor(i/200 - 2);
-	console.log(camx, camy, levelArraySecondary[i]);
+	console.log(camx + 2, camy + 2, levelArraySecondary[i]);
 	//health += 2;
     }
 }
@@ -109,6 +109,14 @@ document.getElementById("big-canvas").addEventListener("click", function(e) {
     var i = 200 * y + x;
     console.log(levelArray[i]);
     console.log(levelArraySecondary[i]);
+    switch (levelArray[i])
+    {
+	case "chestTreasure":
+	console.log(treasureInfoSet[parseInt(levelArraySecondary[i])]);
+	break;
+	case "tokenCheat":
+	console.log(cheatsInfoSet[parseInt(levelArraySecondary[i]) >> 1]);
+    }
 }, false);
 
 renderAllOnBig();
